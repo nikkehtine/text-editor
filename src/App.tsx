@@ -1,35 +1,23 @@
-import { useState } from "react";
-import { invoke } from "@tauri-apps/api/core";
 import "./index.css";
+import "@fontsource/fira-sans";
+import { Textbox } from "@/components/Textbox";
+import { Titlebox } from "@/components/Titlebox";
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
+  // const [greetMsg, setGreetMsg] = useState("");
+  // const [name, setName] = useState("");
 
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
-  }
+  // async function greet() {
+  //   // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
+  //   setGreetMsg(await invoke("greet", { name }));
+  // }
+
+  const textInputClasses = "h-full w-full";
 
   return (
-    <main className="m-auto min-h-screen w-3/4 min-w-[300px]">
-      <h1>Welcome to Tauri + React</h1>
-
-      <form
-        className="row"
-        onSubmit={(e) => {
-          e.preventDefault();
-          greet();
-        }}
-      >
-        <input
-          id="greet-input"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
-        />
-        <button type="submit">Greet</button>
-      </form>
-      <p>{greetMsg}</p>
+    <main className="flex min-h-screen flex-col justify-evenly gap-1 bg-secondary">
+      <Titlebox className={textInputClasses} />
+      <Textbox className={textInputClasses} />
     </main>
   );
 }
