@@ -1,4 +1,5 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+import defaultTheme from "tailwindcss/defaultTheme";
+import "tailwindcss-animate";
 
 /** @type {import('tailwindcss').Config} */
 export default {
